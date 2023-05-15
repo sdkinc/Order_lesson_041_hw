@@ -11,6 +11,8 @@ public class Main {
                 "Da Vinci", "0123456879", 999);
         Order order003 = new Order(UUID.randomUUID().toString(), "David",
                 "Michelangelo", "1023456879", 142);
+        Order.triplePrice(order001);
+        order003.doublePrice();
         List<Order> orders = new ArrayList<>();
         orders.add(order001);
         orders.add(order002);
