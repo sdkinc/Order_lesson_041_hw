@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Order {
@@ -23,12 +24,12 @@ public class Order {
 
     @Override
     public String toString() {
-        return "=== Заказ ===\n" +
+        return "\n=== Заказ ===\n" +
                 "ID:             " + id + "\n" +
                 "Содержимое:     " + content + "\n" +
                 "Клиент:         " + client + "\n" +
                 "Номер телефона: " + phone + "\n" +
-                "Стоимость:      " + price;
+                "Стоимость:      " + price+"\n";
     }
 
     // удваивание стоимости этого заказа - не статический метод
@@ -63,5 +64,16 @@ public class Order {
 
         // только в этот момент появится конкретный заказ
         return new Order(id, content, client, phone, price);
+    }
+
+    public static int getTotalSum(List<Order> orders) {
+        int sumOrders = 0;
+
+        for (Order order : orders
+        ) {
+            sumOrders += order.getPrice();
+        }
+
+        return sumOrders;
     }
 }
